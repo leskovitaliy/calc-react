@@ -12,7 +12,7 @@ class CalcCredit extends React.Component<ICalcCredit, {}> {
     private creditStore = this.props.CalcCreditStore;
 
     state = {
-        totalCredit: 1000,
+        totalCredit: 10000,
         totalMonth: 12,
         percentInYear: 18,
         firstPay: 0
@@ -50,6 +50,13 @@ class CalcCredit extends React.Component<ICalcCredit, {}> {
 
             this.creditStore.addCalcRow(bodyCredit, sumPercentInMonth, bodyCredit + sumPercentInMonth, currentSumCredit);
         }
+
+        this.calculateTotalValues();
+    }
+
+    // calculation total values
+    calculateTotalValues() {
+        this.creditStore.getCalcTotalValue();
     }
 
     handlerCalculate(e) {

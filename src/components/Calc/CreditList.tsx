@@ -10,9 +10,10 @@ interface ICreditList {
 class CreditList extends React.Component<ICreditList, {}> {
 
     render() {
-        const {calcViewList} = this.props.CalcCreditStore;
+        const {calcViewList, totalValue} = this.props.CalcCreditStore;
 
-        console.log('calcViewList: ', calcViewList);
+        // console.log('calcViewList: ', calcViewList);
+        // console.log('totalValue', totalValue);
         return (
             <table className="table">
                 <thead>
@@ -39,6 +40,13 @@ class CreditList extends React.Component<ICreditList, {}> {
                         )
                     })
                 }
+                <tr>
+                    <th>Итого:</th>
+                    <td>{totalValue.bodyCredit.toFixed(2)}</td>
+                    <td>{totalValue.percentInMonth.toFixed(2)}</td>
+                    <td>{totalValue.totalPay.toFixed(2)}</td>
+                    <td></td>
+                </tr>
                 </tbody>
             </table>
         )
